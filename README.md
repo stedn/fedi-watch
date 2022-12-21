@@ -28,3 +28,7 @@ Automate flagging toxic/racist/sexist posts for a network of *helpers* who are *
 The big question is can we get this to work with many new users per day? That is a lot of volunteer commitment.
 
 Ideally all of this could run on the server side and help with decentralized community moderation, but that takes a lot of integration and there are people being harmed every day.  This is an attempt to help with this problem now.
+
+#### Source code
+
+The source code of this project is based heavily off of the example app for [oauth-dropins](https://github.com/snarfed/oauth-dropins).
