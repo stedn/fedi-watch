@@ -1,0 +1,31 @@
+# https://cloud.google.com/appengine/docs/standard/python3/config/appref
+
+# application: oauth-dropins
+default_expiration: 1h
+runtime: python39
+
+# https://cloud.google.com/appengine/docs/standard/python3/runtime#entrypoint_best_practices
+# https://docs.gunicorn.org/en/latest/settings.html#timeout
+entrypoint: gunicorn --workers 1 --threads 10 --timeout 300 -b :$PORT app:app
+
+
+instance_class: F1
+automatic_scaling:
+  max_instances: 1
+
+handlers:
+
+- url: /static
+  static_dir: oauth_dropins/static
+
+- url: /favicon.ico
+  static_files: oauth_dropins/static/favicon.ico
+  upload: oauth_dropins/static/favicon.ico
+
+- url: /.well-known/security.txt
+  static_files: oauth_dropins/static/security.txt
+  upload: oauth_dropins/static/security.txt
+
+- url: .*
+  script: auto
+  secure: always

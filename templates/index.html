@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>fedi watch demo</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/static/bootstrap.min.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="/static/util.js"></script>
+</head>
+<body>
+
+<main class="tp-main">
+  <div class="container">
+    <h1>
+      <img id="logo" width="125" src="/static/oauth_shiny.png" />
+      fedi watch
+    </h1>
+    <p class="lead">A distributed system for aiding with harrassment around Mastodon. Type your instance name below to log in.</p>
+
+<p class="lead"><em>
+{% if declined %}
+<span style="color: red">User declined the access request.</span>
+{% else %}{% if error %}
+<span style="color: red">Error: {{ error }}</span>
+{% endif %}
+{% endif %}
+{% if entity %}
+<p>
+ Authenticated {{ entity.user_display_name() }} on {{ entity.site_name() }}.</p>
+ <a href="/display_replies"> <span style="color: green">Click here to watch replies</span></a>
+{% endif %}
+</em></p>
+
+<br />
+{% if not entity %}
+<div class="row">
+{{ mastodon_html|safe }}
+</div>
+{% endif %}
+</div>
+</main>
+
+</body>
+</html>

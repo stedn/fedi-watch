@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="static/js/application.js"></script>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Replies</h1>
+    <p>Replies in queue added below.</p>
+    <p>Refreshing the page once every 5 minutes can pull in more recent results</p>
+    <!-- <p>should update every 30 seconds if there are any changes to the queue replies</p> -->
+<!--     <p>If nothing is showing up you can manually check the timeline and then check replies below.</p>
+    <p><a href="/poll_local_timelines">Check Timelines</a> | <a href="/check_for_descendants">Check Replies</a></p>
+ -->  </div>
+</div>
+
+</div>
+
+<div class="container" id="content">
+    <div class="row">
+        <div id="log">
+        </div> <!-- /#log -->
+    </div>
+</div>
+
+
+</body>
+</html>
